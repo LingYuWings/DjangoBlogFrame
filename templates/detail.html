@@ -20,6 +20,7 @@
             <!-- 只有作者可以修改文章 -->
             {% if user == article.author %}
             · <a href="#" data-toggle="modal" data-target="#myModal">删除文章</a>
+            · <a href="{% url "article:article_update" article.id %}">编辑文章</a>
             {% endif %}
             <small class="col align-self-end" style="color: gray;">
                 <span class="bi bi-eye">

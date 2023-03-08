@@ -1,8 +1,31 @@
 body{
-    background-color: rgb(255, 255, 255);
+    background: url('/static/img/indexb.png');
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 
 
+.navbar{
+    background: none;
+    backdrop-filter: blur(10px);
+    border-left: none;
+    border-right: none;
+    color: white;
+}
+
+.nav{
+    color: white;
+}
+
+.row{
+    border: 1px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+}
+
+footer{
+    color: white;
+}
 
 @keyframes typing {
     from {
@@ -13,6 +36,7 @@ body{
         width: 11ex
     }
 }
+
 
 @keyframes blink {
     from {
@@ -36,6 +60,7 @@ body{
 }
 
 .page-header{
+    color: white;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
@@ -44,9 +69,43 @@ body{
 
 .page-content{
     width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 20%;
 }
+
 .page-content p{
-    font-size: 20px
+    color: white;
+    font-size: 20px;
+}
+
+.jumbotron{
+    background: none;
+    /* background: url('/static/img/画板\ 1.png');
+    background-size: cover; */
+}
+
+
+
+
+.row{
+    background: none;
+    width: 80%;
+    margin-left: 10%;
+    margin-left: 10%;
+}
+
+.content{
+    margin-top: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    display:table;
+    border: 1px solid white;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+
+.info{
+    border: 1px solid wheat;
 }

@@ -46,7 +46,11 @@ def create(request):
         new_article_title = request.POST.get('title')
         new_article_body = request.POST.get('body')
         new_article_author = User.objects.get(id=request.user.id)
-        models.ArticlePost.objects.create(title=new_article_title, body=new_article_body,author=new_article_author)
+        if new_article_title != None and new_article_body!= None:
+            models.ArticlePost.objects.create(title=new_article_title, body=new_article_body,author=new_article_author)
+        else:
+            error_msg='标题及内容不能为空'
+            return redirect("/article/create/",{'error_msg':error_msg})
 
         return redirect("article:article_list")
 
@@ -90,6 +94,11 @@ def article_update(request, id):
     # 过滤非作者的用户
     if request.user != article.author:
         return HttpResponseRedirect("article:article_list")
+    
+    context = {
+        'content_form': ContentForm()
+    }
+
 
     # 判断用户是否为 POST 提交表单数据
     if request.method == "POST":

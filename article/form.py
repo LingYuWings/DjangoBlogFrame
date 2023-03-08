@@ -3,4 +3,4 @@ from DjangoUeditor.forms import UEditorField
 
 
 class ContentForm(forms.Form):
-    body = UEditorField("", height=500, width=830, toolbars='besttome')
+    body = UEditorField("", height=600, width=600, toolbars='besttome')

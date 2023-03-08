@@ -11,68 +11,137 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="typeout">Hello, world!</h1>
-            <p>Welcome to LingyuWings' personal website</p>
+    <div class="con1">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="typeout">Hello, world!</h1>
+                <p>Welcome to LingyuWings' personal website</p>
+            </div>
         </div>
-    </div>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand"></a>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">主页<span class="sr-only">(current)</span></a></li>
+                        <li><a href="/article/">Blog</a></li>
+                        <!-- <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li><a>欢迎您：<em>{{ user.username }}</em><span>|</span></a></li>
+                        <li><a href="/logout/">退出</a></li>
+                        {% else %}
+                        <li><a href="/login/">登录</a></li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="content">
+            <div>
+                <div class="page-header">
+                    <h1>个人主页</h1>
+                    <p>
+                    <h1><small>页面介绍</small></h1>
+                    </p>
+                </div>
+                <div class="page-content">
+                    <p>该网站为个人兴趣搭建，使用django框架进行制作，尚不成熟，敬请见谅。该页面包含个人博客，简单的登录界面，以及评论系统。</p>
+                    <p>网站博客主要记录自己开发过程和学习过程中的一些经验和记录，有时候整合一些视频之类的。</p>
+                    <p>该网站源码已开源，在博客部分使用了DjangoUeditor作为博客的文字编辑插件，感谢大佬们的开源。</p>
+
+                </div>
+                <div class="page-header">
+                    <h1>About me</h1>
+                </div>
+                <div class="page-content">
+                    <p>社恐患者，不擅长交流，会一点音乐，玩一点游戏，写一点代码。</p>
+                    <p>软工在读，各方面都不大行的底层学生。后端及开发以Python为主，熟悉Django框架的使用及开发。其他语言都有所接触但是都不精。正在努力学习以丰富自己。</p>
+                    
+                </div>
+                <div class="page-header">
+                    <h1>链接</h1>
+                </div>
+                <div class="page-content">
+                    <p>
+                        以下为该页面的github相关链接
+                    </p>
+                    <div class="gitAddress">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=LingYuWings&repo=DjangoWebsite&type=watch&count=true&v=2"
+                            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=LingYuWings&repo=DjangoWebsite&type=fork&count=true"
+                            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=LingYuWings&repo=DjangoWebsite&type=star&count=true"
+                            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+                    </div>
+                    <p>以下为一些个人联系方式：</p>
+                    <p>
+                        <tr>
+                            <td>
+                                <img src="/static/img/mail.svg" width="40px" style="margin-right: 20px;">
+                            </td>
+                            <td></td>
+                            <td>
+                                justin123justinxu@outlook.com
+                            </td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td>
+                                <img src="/static/img/Play.svg" width="40px" style="margin-right: 20px;">
+                            </td>
+                            <td></td>
+                            <td>
+                                <a href="https://space.bilibili.com/10114968">凌羽翼LingyuWings</a>
+                            </td>
+                        </tr>
+                    </p>
+                    <p>
+                        <tr>
+                            <td>
+                                <img src="/static/img/social-github-outline.svg" width="40px" style="margin-right: 20px;">
+                            </td>
+                            <td></td>
+                            <td>
+                                <a href="https://github.com/LingYuWings">@LingYu_Wings</a>
+                            </td>
+                        </tr>
+                    </p>
+                </div>
+                
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">主页<span class="sr-only">(current)</span></a></li>
-                    <li><a href="/article/">Blog</a></li>
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li> -->
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user.is_authenticated %}
-                    <li><a>欢迎您：<em>{{ user.username }}</em><span>|</span></a></li>
-                    <li><a href="/logout/">退出</a></li>
-                    {% else %}
-                    <li><a href="/login/">登录</a></li>
-                    {% endif %}
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <div class="page-header">
-        <h1>个人主页</h1>
-        <p>
-        <h1><small>页面介绍</small></h1>
-        </p>
-    </div>
-    <div class="page-content">
-        <p>该网站为个人兴趣搭建，使用django框架进行制作，尚不成熟，敬请见谅。该页面包含个人博客，简单的登录界面，以及评论系统</p>
-    </div>
-    <div>
-
+        </div>
     </div>
     <div>
         <br><br><br>

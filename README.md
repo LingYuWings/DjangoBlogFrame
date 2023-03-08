@@ -1,2 +1,2 @@
 # DjangoWebsite
- A django persional website and blog
+ A django persional website and blog. Unfinished yet.

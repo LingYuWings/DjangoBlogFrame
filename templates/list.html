@@ -81,16 +81,16 @@
                 <!--                >-->
                 <!--                    {{ articles.next_page_number }}-->
                 <!--                </a>-->
-                <a href="?page={{ articles.next_page_number }}&order={{ order }}" class="btn btn-secondary">{{
-                    articles.next_page_number }}</a>
+                <a href="?page={{ articles.next_page_number }}&order={{ order }}" class="btn btn-secondary">
+                    {{ articles.next_page_number }}</a>
                 <span>...</span>
                 <!--                <a href="?page={{ articles.paginator.num_pages }}"-->
                 <!--                   class="btn btn-success"-->
                 <!--                >-->
                 <!--                    {{ articles.paginator.num_pages }} &raquo;-->
                 <!--                </a>-->
-                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}" class="btn btn-success">{{
-                    articles.paginator.num_pages }} &raquo;</a>
+                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}" class="btn btn-success">
+                    {{ articles.paginator.num_pages }} &raquo;</a>
                 {% endif %}
             </span>
         </div>

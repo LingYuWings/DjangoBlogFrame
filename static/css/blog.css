@@ -2,6 +2,10 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+.jumbotron{
+    background: url('/static/img/画板\ 1.png');
+}
+
 .blogBody{
     width: 80%;
     margin-left: 10%;
@@ -14,10 +18,14 @@ body{
 
 .create{
     width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 60px;
 }
 
 .create label{
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: lighter;
 }
 
 @keyframes typing {
@@ -59,11 +67,26 @@ body{
 }
 
 .container{
-    width: 100%;
+    width: 80%;
 }
 
 
 .pagination{
     margin-left: 5%;
     margin-top: 100px;
+}
+
+.detail{
+    width: 80%;
+    margin-left: 10%;
+    margin-left: 10%;
+    margin-top: 60px;
+}
+
+.saveButton{
+    background: none;
+    margin-left: 300px;
+    align-self: center;
+    height: 40px;
+    width: 60px;
 }
