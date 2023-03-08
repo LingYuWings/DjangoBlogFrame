@@ -1,0 +1,62 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.login-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 65ex;
+    background-color: rgba(255, 255, 255, 0.116);
+    border-radius: 5px;
+    color: white;
+    transform: translate(-50%, -50%);
+}
+
+.form-horizontal {
+    padding: 30px;
+}
+
+.form-control {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid aqua;
+    border-radius: 0;
+    color: white;
+}
+
+.form-control:focus {
+    border-bottom: 2px solid rgb(255, 255, 255);
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn{
+    background-color: transparent;
+    border-bottom: 2px solid aqua;
+    border-radius: 0;
+    margin-left: 60px;
+}
+
+.btn:hover{
+    background-color: aqua;
+    color: black;
+    box-shadow: 0 0 30px aqua;
+    transition:background-color 1s linear;
+    transition:color 0.3s linear;
+    transition:box-shadow 0.3s linear;
+}
+
+.checkbox label{
+    border-bottom: 2px solid transparent;
+}
+
+.checkbox label:hover{
+    border-bottom: 2px  solid aqua;
+    transition: all 0.3s linear;
+}

@@ -1,0 +1,42 @@
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "base.html" %}
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+修改文章
+{% endblock title %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="create">
+    <form action="." method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <!-- 标签 -->
+            <label for="title">文章标题</label>
+            <!-- 文本框 -->
+            <input type="text" class="form-control" id="title" name="title" value="{{ article.title }}">
+        </div>
+
+
+        <!-- 关键 -->
+        <label for="form-group">文章内容</label>
+        <p></p>
+        {{ content_form }}
+        <!-- 关键 -->
+
+        <button type="submit">保存</button>
+    </form>
+</div>                
+{% else %}
+<div class="page-header">
+    <h1>用户未登录 </h1>
+    <p>
+    <h1><small>请登陆后进行操作</small></h1>
+    </p>
+</div>
+{% endif %}
+
+{% endblock content %}

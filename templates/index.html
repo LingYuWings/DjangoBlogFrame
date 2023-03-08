@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script type="text/javascript" src="../static/plugins/jquery-3.6.3.js"></script>
+    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="typeout">Hello, world!</h1>
+            <p>Welcome to LingyuWings' personal website</p>
+        </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">主页<span class="sr-only">(current)</span></a></li>
+                    <li><a href="/article/">Blog</a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li><a>欢迎您：<em>{{ user.username }}</em><span>|</span></a></li>
+                    <li><a href="/logout/">退出</a></li>
+                    {% else %}
+                    <li><a href="/login/">登录</a></li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="page-header">
+        <h1>个人主页</h1>
+        <p>
+        <h1><small>页面介绍</small></h1>
+        </p>
+    </div>
+    <div class="page-content">
+        <p>该网站为个人兴趣搭建，使用django框架进行制作，尚不成熟，敬请见谅。该页面包含个人博客，简单的登录界面，以及评论系统</p>
+    </div>
+    <div>
+
+    </div>
+    <div>
+        <br><br><br>
+    </div>
+    <footer class="py-3 bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; LingyuWings 2023</p>
+        </div>
+    </footer>
+</body>
+
+
+</html>

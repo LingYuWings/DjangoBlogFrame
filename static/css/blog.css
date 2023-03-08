@@ -1,0 +1,69 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+.blogBody{
+    width: 80%;
+    margin-left: 10%;
+    margin-left: 10%;
+}
+
+.card-body{
+    margin-top: 60px;
+}
+
+.create{
+    width: 80%;
+}
+
+.create label{
+    font-size: 40px;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 13ex
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent
+    }
+
+    to {
+        border-color: rgb(255, 255, 255);
+    }
+}
+
+.typeout {
+    width: fit-content;
+    overflow: hidden;
+    border-right: .15em solid rgb(0, 0, 0);
+    white-space: nowrap;
+    width: 0;
+    animation:
+        typing 2s steps(20, end) forwards,
+        blink .8s infinite;
+}
+
+.page-header{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 60px;
+}
+
+.container{
+    width: 100%;
+}
+
+
+.pagination{
+    margin-left: 5%;
+    margin-top: 100px;
+}

@@ -1,0 +1,52 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 11ex
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent
+    }
+
+    to {
+        border-color: rgb(255, 255, 255);
+    }
+}
+
+.typeout {
+    width: fit-content;
+    overflow: hidden;
+    border-right: .15em solid rgb(0, 0, 0);
+    white-space: nowrap;
+    width: 0;
+    animation:
+        typing 2s steps(12, end) forwards,
+        blink .8s infinite;
+}
+
+.page-header{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 60px;
+}
+
+.page-content{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.page-content p{
+    font-size: 20px
+}
