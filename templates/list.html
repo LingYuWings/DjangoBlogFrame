@@ -28,26 +28,19 @@
         </nav>
 
         {% for article in articles %}
-        <div class="row mt-2">
-            <!-- 文章内容 -->
-            <div class="col-sm-12">
-                <!-- 卡片容器 -->
-                <div class="card h-100">
-                    <!-- 标题 -->
-                    <!-- 摘要 -->
-                    <div class="card-body">
-                        <h4 class="card-title">{{ article.title }}</h4>
-                        <p class="card-text">{{ article.body|slice:'100' }}...</p>
-                        <a href="{% url 'article:article_detail' article.id %}" class="card-link">阅读本文</a>
-                        <small class="col align-self-end" style="color: gray;">
-                            <span class="bi bi-eye">
-                                {{ article.total_views }}
-                            </span>
-                        </small>
-                    </div>
-                </div>
-            </div>
+        <div class="page-header">
+            <h1>{{ article.title }}</h1>
+            <p>
+            {{ article.body|slice:'100'|safe }}...
+            </p>
+            <a href="{% url 'article:article_detail' article.id %}" class="card-link">阅读本文</a>
+            <small class="col align-self-end" style="color: gray;">
+                <span class="bi bi-eye">
+                    {{ article.total_views }}
+                </span>
+            </small>
         </div>
+        
         {% endfor %}
     </div>
 

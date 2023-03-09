@@ -28,6 +28,12 @@ body{
     font-weight: lighter;
 }
 
+.uditor{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 @keyframes typing {
     from {
         width: 0
@@ -77,9 +83,9 @@ body{
 }
 
 .detail{
-    width: 80%;
-    margin-left: 10%;
-    margin-left: 10%;
+    width: 60%;
+    margin-left: 20%;
+    margin-left: 20%;
     margin-top: 60px;
 }
 
@@ -89,4 +95,11 @@ body{
     align-self: center;
     height: 40px;
     width: 60px;
+}
+
+
+.row{
+    width: 60%;
+    margin-left: 20%;
+    margin-left: 20%;
 }
