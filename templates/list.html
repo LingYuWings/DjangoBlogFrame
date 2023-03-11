@@ -31,16 +31,16 @@
         <div class="page-header">
             <h1>{{ article.title }}</h1>
             <p>
-            {{ article.body|slice:'100'|safe }}...
+            {{ article.body|slice:'20'|safe }}...
             </p>
-            <a href="{% url 'article:article_detail' article.id %}" class="card-link">阅读本文</a>
+            <p><a href="{% url 'article:article_detail' article.id %}" class="card-link">阅读本文</a></p>
+            
             <small class="col align-self-end" style="color: gray;">
                 <span class="bi bi-eye">
                     {{ article.total_views }}
                 </span>
             </small>
-        </div>
-        
+        </div>  
         {% endfor %}
     </div>
 

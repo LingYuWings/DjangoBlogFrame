@@ -12,6 +12,8 @@ from article import views
 from webapp1 import views as mainView
 from django.urls import re_path as url
 from django.conf import settings
+from django.views.static import serve
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,5 @@ urlpatterns = [
     path('article/', include('article.urls', namespace='article')),
     path('comment/', include('comment.urls', namespace='comment')),
     path('ueditor/', include('DjangoUeditor.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
