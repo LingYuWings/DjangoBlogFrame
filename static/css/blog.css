@@ -105,3 +105,15 @@ body{
     margin-left: 10%;
     margin-left: 10%;
 }
+
+.update{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 60px;
+}
+
+.create label{
+    font-size: 30px;
+    font-weight: lighter;
+}

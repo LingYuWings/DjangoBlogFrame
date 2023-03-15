@@ -96,20 +96,20 @@ def article_update(request, id):
         return HttpResponseRedirect("article:article_list")
     
     context = {
+        'article': ArticlePost.objects.get(id=id),
         'content_form': ContentForm()
     }
 
 
     # 判断用户是否为 POST 提交表单数据
-    if request.method == "POST":
+    if request.method == 'GET': # 获取空界面用于创建该文章的内容
+        return render(request, 'update.html', context=context)
+    elif request.method == 'POST':
         new_article_title = request.POST.get('title')
         new_article_body = request.POST.get('body')
-        article.title = new_article_title
-        article.body = new_article_body
-        article.save()
-        # 完成后返回到修改后的文章中。需传入文章的 id 值
-        return redirect("article:article_detail", id=id)
-    else:
-        # 赋值上下文，将 article 文章对象也传递进去，以便提取旧的内容
-        context = {'article': article}
-        return render(request, 'update.html', context)
+        if new_article_title != None and new_article_body!= None:
+            ArticlePost.objects.filter(id=id).update(title=new_article_title, body=new_article_body)
+        else:
+            error_msg='标题及内容不能为空'
+            return redirect("/article/article-update/"+str(id),{'error_msg':error_msg})
+    return redirect("/article/article-detail/"+str(id))

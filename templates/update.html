@@ -12,24 +12,46 @@
 <div class="create">
     <form action="." method="post">
         {% csrf_token %}
+        <div class="createForm">
 
-        <div class="form-group">
             <!-- 标签 -->
             <label for="title">文章标题</label>
+            <p></p>
+
             <!-- 文本框 -->
-            <input type="text" class="form-control" id="title" name="title" value="{{ article.title }}">
+            <input type="text" class="form-control" id="title" name="title" style="width: 50%;">
+            <p></p>
+
+            <!-- 关键 -->
+            <label for="id_body">文章内容</label>
+            <p></p>
+            <div class="uditor">{{ content_form }}</div>
+           
+            <!-- 关键 -->
+
+
+        </div>
+        <div>
+            <p><span style="color:red;">{{ error_msg }}</span></p>
         </div>
 
 
-        <!-- 关键 -->
-        <label for="form-group">文章内容</label>
-        <p></p>
-        {{ content_form }}
-        <!-- 关键 -->
-
-        <button type="submit">保存</button>
+        <button type="submit" class="saveButton">保存</button>
     </form>
 </div>                
+<script>
+    {% if article %}
+        //如果文章有内容就填充在content_form中
+        document.getElementById("title").value='{{ article.title }}';
+
+    {% endif %}
+</script>
+<script>
+    {% if article %}
+        document.getElementById("id_body").value='{{ article.body|safe }}';
+    {% endif %}
+</script>
+
 {% else %}
 <div class="page-header">
     <h1>用户未登录 </h1>
@@ -38,5 +60,7 @@
     </p>
 </div>
 {% endif %}
+
+    
 
 {% endblock content %}
