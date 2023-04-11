@@ -7,9 +7,9 @@ body{
 }
 
 .blogBody{
-    width: 80%;
-    margin-left: 10%;
-    margin-left: 10%;
+    width: 70%;
+    margin-left: 15%;
+    margin-left: 15%;
 }
 
 .card-body{
@@ -89,6 +89,7 @@ body{
     background: none;
     margin-left: 300px;
     align-self: center;
+    border-radius: 10px;
     height: 40px;
     width: 60px;
 }
