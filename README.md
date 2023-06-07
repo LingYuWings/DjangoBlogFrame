@@ -10,3 +10,5 @@
 
     fixed blog create and update page, now the blog can be created and update and then save to the mysql database link to the project. 
     The mysql link can be set at settings.py file.
+#2023.6.7 update
+    Temporarily stop the update because of some issue in other projects learning now
