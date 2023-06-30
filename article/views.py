@@ -3,20 +3,19 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-# 导入数据模型ArticlePost
+# import ArticlePost data structure
 from comment.models import Comment
 from . import models
 from .models import ArticlePost
-# 引入User模型
+# import user model
 from django.contrib.auth.models import User
-# 引入分页模块
+# import paginator model
 from django.core.paginator import Paginator
 from article.form import ContentForm
 from django.contrib import messages
 
 def article_list(request):
-    # 根据GET请求中查询条件
-    # 返回不同排序的对象数组
+    # return defferent sorted result accroding to the get request
     if request.GET.get('order') == 'total_views':
         article_list = ArticlePost.objects.all().order_by('-total_views')
         order = 'total_views'
@@ -28,7 +27,6 @@ def article_list(request):
     page = request.GET.get('page')
     articles = paginator.get_page(page)
 
-    # 修改此行
     context = { 'articles': articles, 'order': order }
 
     return render(request, 'list.html', context)
@@ -40,9 +38,9 @@ def create(request):
         'content_form': ContentForm()
     }
 
-    if request.method == 'GET': # 获取空界面用于创建该文章的内容
+    if request.method == 'GET': # get an empty page to create blog content
         return render(request, 'create.html', context=context)
-    if request.method == 'POST':    # 新建文章
+    if request.method == 'POST':    # create new article
         new_article_title = request.POST.get('title')
         new_article_body = request.POST.get('body')
         new_article_author = User.objects.get(id=request.user.id)
@@ -55,41 +53,39 @@ def create(request):
         return redirect("article:article_list")
 
 
-# 文章详情
+# article detail
 def article_detail(request, id):
-    # 取出相应的文章
+    # read the article by id from the database
     article = ArticlePost.objects.get(id=id)
-    # 浏览量 +1
     article.total_views += 1
     article.save(update_fields=['total_views'])
 
-    # 取出文章评论
+    # search the comment related to the article and write it to the article page
     comments = Comment.objects.filter(article=id)
 
-    # 需要传递给模板的对象
     # context = { 'article': article }
     context = { 'article': article, 'comments': comments }
-    # 载入模板，并返回context对象
+    # load template and retuen context
     return render(request, 'detail.html', context)
 
-# 删文章
+# delete article
 def article_delete(request, id):
-    # 根据 id 获取需要删除的文章
+    # get the article id the user wanna delete
     article = ArticlePost.objects.get(id=id)
-    # 过滤非作者的用户
+    # if the user is not the article's creator, forbidden the user from delete the article
     if request.user != article.author:
         return redirect("article:article_list")
     else:
-        # 调用.delete()方法删除文章
         article.delete()
-        # 完成删除后返回文章列表
+        # finish delete, return to the article list
         return redirect("article:article_list")
-# 更新文章
-# 提醒用户登录
+    
+# article update
+# this function require the user logged in
 @login_required(login_url='webapp1/login/')
 
 def article_update(request, id):
-    # # 获取需要修改的具体文章对象
+    #获取需要修改的具体文章对象
     article = ArticlePost.objects.get(id=id)
     # 过滤非作者的用户
     if request.user != article.author:
