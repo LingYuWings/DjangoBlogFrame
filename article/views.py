@@ -85,9 +85,9 @@ def article_delete(request, id):
 @login_required(login_url='webapp1/login/')
 
 def article_update(request, id):
-    #获取需要修改的具体文章对象
+    # get the article that needed to be update
     article = ArticlePost.objects.get(id=id)
-    # 过滤非作者的用户
+    # only the creator of the article can update it
     if request.user != article.author:
         return HttpResponseRedirect("article:article_list")
     
@@ -97,8 +97,8 @@ def article_update(request, id):
     }
 
 
-    # 判断用户是否为 POST 提交表单数据
-    if request.method == 'GET': # 获取空界面用于创建该文章的内容
+    # user need to use POST way to submit the updated article
+    if request.method == 'GET': 
         return render(request, 'update.html', context=context)
     elif request.method == 'POST':
         new_article_title = request.POST.get('title')

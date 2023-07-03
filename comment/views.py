@@ -8,7 +8,6 @@ from article.models import ArticlePost
 from . import models
 
 
-# 文章评论
 @login_required(login_url='/userprofile/login/')
 def post_comment(request, article_id):
     article = get_object_or_404(ArticlePost, id=article_id)

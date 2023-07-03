@@ -1,13 +1,11 @@
 from django.contrib import admin
 # from DjangoUeditor import urls
 from django.views.generic import RedirectView
-from django.views.static import serve  # 上传文件处理函数
-from .settings import MEDIA_ROOT  # 从配置中导入MEDIA_ROOT
+from django.views.static import serve
+from .settings import MEDIA_ROOT  # import MEDIA_ROOT from settings
 from article import urls
 from django.contrib import admin
-# 记得引入include
 from django.urls import path, include
-# 存放映射关系的列表
 from article import views
 from webapp1 import views as mainView
 from django.urls import re_path as url
@@ -18,7 +16,6 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', mainView.index),
-    # 新增代码，配置app的url
     path('',mainView.index),
     path('login/',mainView.login),
     path('signup/',mainView.signUp),
