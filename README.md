@@ -12,3 +12,6 @@
     The mysql link can be set at settings.py file.
 # 2023.6.7 update
     Temporarily stop the update because of some issue in other projects learning now
+
+# 2023.10.20 update
+    Develop and bug fix continues by now.
